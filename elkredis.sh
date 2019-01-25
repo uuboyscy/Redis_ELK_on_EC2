@@ -26,6 +26,12 @@ echo "alias redis-cli--raw='docker exec -it ec2-redis redis-cli --raw'" >> /etc/
 
 sleep 3
 
+
+#free the memory
+sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+sh -c 'echo 2 >/proc/sys/vm/drop_caches'
+sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+
 ## setup ELK+Grafana
 cd ~
 mkdir ELK
@@ -38,12 +44,24 @@ tar -zxvf elasticsearch-6.5.4.tar.gz
 sleep 10
 rm -rf elasticsearch-6.5.4.tar.gz
 
+
+#free the memory
+sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+sh -c 'echo 2 >/proc/sys/vm/drop_caches'
+sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+
 # Kibana
 wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.4-linux-x86_64.tar.gz
 sleep 3
 tar -zxvf kibana-6.5.4-linux-x86_64.tar.gz
 sleep10
 rm -rf kibana-6.5.4-linux-x86_64.tar.gz
+
+
+#free the memory
+sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+sh -c 'echo 2 >/proc/sys/vm/drop_caches'
+sh -c 'echo 3 >/proc/sys/vm/drop_caches'
 
 # Metricbeat
 wget https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-6.5.4-linux-x86_64.tar.gz
@@ -52,12 +70,23 @@ tar -zxvf metricbeat-6.5.4-linux-x86_64.tar.gz
 sleep 10
 rm -rf metricbeat-6.5.4-linux-x86_64.tar.gz
 
+
+#free the memory
+sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+sh -c 'echo 2 >/proc/sys/vm/drop_caches'
+sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+
 # Grafana
 wget https://dl.grafana.com/oss/release/grafana-5.4.3.linux-amd64.tar.gz
 sleep 3
 tar -zxvf grafana-5.4.3.linux-amd64.tar.gz
 sleep 10
 rm -rf grafana-5.4.3.linux-amd64.tar.gz
+
+#free the memory
+sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+sh -c 'echo 2 >/proc/sys/vm/drop_caches'
+sh -c 'echo 3 >/proc/sys/vm/drop_caches'
 
 # setuo PATH
 export PATH="$PATH:/root/ELK/elasticsearch-6.5.4/bin"
@@ -70,6 +99,12 @@ cd ~
 git clone https://github.com/uuboyscy/NobodyChatbot.git
 sleep 5
 chmod 777 -R NobodyChatbot
+
+
+#free the memory
+sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+sh -c 'echo 2 >/proc/sys/vm/drop_caches'
+sh -c 'echo 3 >/proc/sys/vm/drop_caches'
 
 
 
