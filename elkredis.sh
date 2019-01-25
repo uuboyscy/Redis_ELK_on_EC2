@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 yum update -y
@@ -28,9 +27,13 @@ sleep 3
 
 
 #free the memory
-sh -c 'echo 1 >/proc/sys/vm/drop_caches'
-sh -c 'echo 2 >/proc/sys/vm/drop_caches'
-sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+freeMemory()
+{
+  sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+  sh -c 'echo 2 >/proc/sys/vm/drop_caches'
+  sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+}
+
 
 ## setup ELK+Grafana
 cd ~
@@ -46,9 +49,7 @@ rm -rf elasticsearch-6.5.4.tar.gz
 
 
 #free the memory
-sh -c 'echo 1 >/proc/sys/vm/drop_caches'
-sh -c 'echo 2 >/proc/sys/vm/drop_caches'
-sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+freeMemory
 
 # Kibana
 wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.4-linux-x86_64.tar.gz
@@ -59,9 +60,7 @@ rm -rf kibana-6.5.4-linux-x86_64.tar.gz
 
 
 #free the memory
-sh -c 'echo 1 >/proc/sys/vm/drop_caches'
-sh -c 'echo 2 >/proc/sys/vm/drop_caches'
-sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+freeMemory
 
 # Metricbeat
 wget https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-6.5.4-linux-x86_64.tar.gz
@@ -72,9 +71,7 @@ rm -rf metricbeat-6.5.4-linux-x86_64.tar.gz
 
 
 #free the memory
-sh -c 'echo 1 >/proc/sys/vm/drop_caches'
-sh -c 'echo 2 >/proc/sys/vm/drop_caches'
-sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+freeMemory
 
 # Grafana
 wget https://dl.grafana.com/oss/release/grafana-5.4.3.linux-amd64.tar.gz
@@ -84,9 +81,7 @@ sleep 10
 rm -rf grafana-5.4.3.linux-amd64.tar.gz
 
 #free the memory
-sh -c 'echo 1 >/proc/sys/vm/drop_caches'
-sh -c 'echo 2 >/proc/sys/vm/drop_caches'
-sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+freeMemory
 
 # setuo PATH
 export PATH="$PATH:/root/ELK/elasticsearch-6.5.4/bin"
@@ -102,9 +97,4 @@ chmod 777 -R NobodyChatbot
 
 
 #free the memory
-sh -c 'echo 1 >/proc/sys/vm/drop_caches'
-sh -c 'echo 2 >/proc/sys/vm/drop_caches'
-sh -c 'echo 3 >/proc/sys/vm/drop_caches'
-
-
-
+freeMemory
