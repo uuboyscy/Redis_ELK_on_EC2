@@ -33,22 +33,30 @@ cd ELK
 
 # Elasticsearch
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.4.tar.gz
+sleep 3
 tar -zxvf elasticsearch-6.5.4.tar.gz
+sleep 10
 rm -rf elasticsearch-6.5.4.tar.gz
 
 # Kibana
 wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.4-linux-x86_64.tar.gz
+sleep 3
 tar -zxvf kibana-6.5.4-linux-x86_64.tar.gz
+sleep10
 rm -rf kibana-6.5.4-linux-x86_64.tar.gz
 
 # Metricbeat
 wget https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-6.5.4-linux-x86_64.tar.gz
+sleep3
 tar -zxvf metricbeat-6.5.4-linux-x86_64.tar.gz
+sleep 10
 rm -rf metricbeat-6.5.4-linux-x86_64.tar.gz
 
 # Grafana
 wget https://dl.grafana.com/oss/release/grafana-5.4.3.linux-amd64.tar.gz
+sleep 3
 tar -zxvf grafana-5.4.3.linux-amd64.tar.gz
+sleep 10
 rm -rf grafana-5.4.3.linux-amd64.tar.gz
 
 # setuo PATH
@@ -60,6 +68,7 @@ export PATH="$PATH:/root/ELK/grafana-5.4.3/bin"
 ## pull line chatbot from github
 cd ~
 git clone https://github.com/uuboyscy/NobodyChatbot.git
+sleep 5
 chmod 777 -R NobodyChatbot
 
 
