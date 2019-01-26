@@ -98,3 +98,4 @@ chmod 777 -R NobodyChatbot
 
 #free the memory
 freeMemory
+alias freemem="sh -c 'echo 1 >/proc/sys/vm/drop_caches';sh -c 'echo 2 >/proc/sys/vm/drop_caches';sh -c 'echo 3 >/proc/sys/vm/drop_caches'"
