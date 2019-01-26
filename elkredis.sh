@@ -47,7 +47,9 @@ tar -zxvf elasticsearch-6.5.4.tar.gz
 sleep 10
 rm -rf elasticsearch-6.5.4.tar.gz
 # setup memory setting that starting need
-
+cd /root/ELK/elasticsearch-6.5.4/config
+sed -i 's/-Xmx1g/-Xmx512m/g' jvm.options
+sed -i 's/-Xms1g/-Xms512m/g' jvm.options
 
 #free the memory
 freeMemory
