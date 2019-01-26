@@ -104,8 +104,10 @@ git clone https://github.com/uuboyscy/NobodyChatbot.git
 sleep 5
 # change owner
 chown -R ec2-user NobodyChatbot/
-chmod 777 -R NobodyChatbot
-
+#chmod 777 -R NobodyChatbot
+cd NobodyChatbot
+sh build.sh
+sleep 30
 
 #free the memory
 freeMemory
