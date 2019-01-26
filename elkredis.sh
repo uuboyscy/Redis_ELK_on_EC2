@@ -120,7 +120,7 @@ sleep 5
 # change owner
 chown -R $username NobodyChatbot/
 chown -R $username /root
-#chmod 777 -R NobodyChatbot
+chmod 777 -R NobodyChatbot
 cd NobodyChatbot
 sh build.sh
 sleep 30
