@@ -47,6 +47,7 @@ sleep 15
 tar -zxvf elasticsearch-6.5.4.tar.gz
 sleep 20
 rm -rf elasticsearch-6.5.4.tar.gz
+sed -i 's/#network.host: 192.168.0.1/network.host: 0.0.0.0/g' /root/ELK/elasticsearch-6.5.4/elasticsearch.yml
 
 #free the memory
 freeMemory
