@@ -58,7 +58,6 @@ tar -zxvf kibana-6.5.4-linux-x86_64.tar.gz
 sleep10
 rm -rf kibana-6.5.4-linux-x86_64.tar.gz
 
-
 #free the memory
 freeMemory
 
@@ -83,8 +82,14 @@ rm -rf grafana-5.4.3.linux-amd64.tar.gz
 #free the memory
 freeMemory
 
+# change owner
+chown -R ec2-user elasticsearch-6.5.4/
+chown -R ec2-user kibana-6.5.4-linux-x86_64
+chown -R ec2-user metricbeat-6.5.4-linux-x86_64
+chown -R ec2-user grafana-5.4.3.linux-amd64
+
 # setuo PATH
-echo "export PATH=\"\$PATH:/root/ELK/elasticsearch-6.5.4/bin\""
+echo "export PATH=\"\$PATH:/root/ELK/elasticsearch-6.5.4/bin\"" >> ~/.profile
 echo "export PATH=\"\$PATH:/root/ELK/kibana-6.5.4-linux-x86_64/bin\""
 echo "export PATH=\"\$PATH:/root/ELK/metricbeat-6.5.4-linux-x86_64\""
 echo "export PATH=\"\$PATH:/root/ELK/grafana-5.4.3/bin\""
@@ -93,9 +98,11 @@ echo "export PATH=\"\$PATH:/root/ELK/grafana-5.4.3/bin\""
 cd ~
 git clone https://github.com/uuboyscy/NobodyChatbot.git
 sleep 5
+# change owner
+chown -R ec2-user NobodyChatbot/
 chmod 777 -R NobodyChatbot
 
 
 #free the memory
 freeMemory
-alias freemem="sh -c 'echo 1 >/proc/sys/vm/drop_caches';sh -c 'echo 2 >/proc/sys/vm/drop_caches';sh -c 'echo 3 >/proc/sys/vm/drop_caches'"
+echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\""
