@@ -84,10 +84,10 @@ rm -rf grafana-5.4.3.linux-amd64.tar.gz
 freeMemory
 
 # setuo PATH
-export PATH="$PATH:/root/ELK/elasticsearch-6.5.4/bin"
-export PATH="$PATH:/root/ELK/kibana-6.5.4-linux-x86_64/bin"
-export PATH="$PATH:/root/ELK/metricbeat-6.5.4-linux-x86_64"
-export PATH="$PATH:/root/ELK/grafana-5.4.3/bin"
+echo "export PATH=\"\$PATH:/root/ELK/elasticsearch-6.5.4/bin\""
+echo "export PATH=\"\$PATH:/root/ELK/kibana-6.5.4-linux-x86_64/bin\""
+echo "export PATH=\"\$PATH:/root/ELK/metricbeat-6.5.4-linux-x86_64\""
+echo "export PATH=\"\$PATH:/root/ELK/grafana-5.4.3/bin\""
 
 ## pull line chatbot from github
 cd ~
