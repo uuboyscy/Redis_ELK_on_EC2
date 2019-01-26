@@ -64,11 +64,8 @@ freeMemory
 wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.4-linux-x86_64.tar.gz
 sleep 3
 tar -zxvf kibana-6.5.4-linux-x86_64.tar.gz
-sleep 10
+sleep 30
 rm -rf kibana-6.5.4-linux-x86_64.tar.gz
-# append server.host: "0.0.0.0" and elasticsearch.url: "http://localhost:9200" to kibana.yml
-echo "server.host: \"0.0.0.0\"" >> /root/ELK/kibana-6.5.4-linux-x86_64/config/kibana.yml
-echo "elasticsearch.url: \"http://localhost:9200\"" >> /root/ELK/kibana-6.5.4-linux-x86_64/config/kibana.yml
 
 #free the memory
 freeMemory
@@ -93,6 +90,10 @@ rm -rf grafana-5.4.3.linux-amd64.tar.gz
 
 #free the memory
 freeMemory
+
+# append server.host: "0.0.0.0" and elasticsearch.url: "http://localhost:9200" to kibana.yml
+echo "server.host: \"0.0.0.0\"" >> /root/ELK/kibana-6.5.4-linux-x86_64/config/kibana.yml
+echo "elasticsearch.url: \"http://localhost:9200\"" >> /root/ELK/kibana-6.5.4-linux-x86_64/config/kibana.yml
 
 # change owner
 chown -R ec2-user elasticsearch-6.5.4/
