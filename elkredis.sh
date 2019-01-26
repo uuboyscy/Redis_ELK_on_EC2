@@ -75,7 +75,7 @@ freeMemory
 
 # Metricbeat
 wget https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-6.5.4-linux-x86_64.tar.gz
-sleep3
+sleep 3
 tar -zxvf metricbeat-6.5.4-linux-x86_64.tar.gz
 sleep 10
 rm -rf metricbeat-6.5.4-linux-x86_64.tar.gz
