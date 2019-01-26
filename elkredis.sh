@@ -46,6 +46,7 @@ sleep 3
 tar -zxvf elasticsearch-6.5.4.tar.gz
 sleep 10
 rm -rf elasticsearch-6.5.4.tar.gz
+# setup memory setting that starting need
 
 
 #free the memory
@@ -57,6 +58,9 @@ sleep 3
 tar -zxvf kibana-6.5.4-linux-x86_64.tar.gz
 sleep10
 rm -rf kibana-6.5.4-linux-x86_64.tar.gz
+# append server.host: "0.0.0.0" and elasticsearch.url: "http://localhost:9200" to kibana.yml
+echo "server.host: \"0.0.0.0\"" >> /root/ELK/kibana-6.5.4-linux-x86_64/config/kibana.yml
+echo "elasticsearch.url: \"http://localhost:9200\"" >> /root/ELK/kibana-6.5.4-linux-x86_64/config/kibana.yml
 
 #free the memory
 freeMemory
@@ -89,10 +93,10 @@ chown -R ec2-user metricbeat-6.5.4-linux-x86_64
 chown -R ec2-user grafana-5.4.3.linux-amd64
 
 # setuo PATH
-echo "export PATH=\"\$PATH:/root/ELK/elasticsearch-6.5.4/bin\"" >> ~/.profile
-echo "export PATH=\"\$PATH:/root/ELK/kibana-6.5.4-linux-x86_64/bin\""
-echo "export PATH=\"\$PATH:/root/ELK/metricbeat-6.5.4-linux-x86_64\""
-echo "export PATH=\"\$PATH:/root/ELK/grafana-5.4.3/bin\""
+echo "export PATH=\"\$PATH:/root/ELK/elasticsearch-6.5.4/bin\"" >> /etc/profile
+echo "export PATH=\"\$PATH:/root/ELK/kibana-6.5.4-linux-x86_64/bin\"" >> /etc/profile
+echo "export PATH=\"\$PATH:/root/ELK/metricbeat-6.5.4-linux-x86_64\"" >> /etc/profile
+echo "export PATH=\"\$PATH:/root/ELK/grafana-5.4.3/bin\"" >> /etc/profile
 
 ## pull line chatbot from github
 cd ~
@@ -105,4 +109,4 @@ chmod 777 -R NobodyChatbot
 
 #free the memory
 freeMemory
-echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\""
+echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\"" >> /etc/profile
