@@ -1,8 +1,12 @@
 #!/bin/bash
+set -x
+#set -n
 
 yum update -y
 yum -y install git
 echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\"" >> /etc/profile
+
+username="ec2-user"
 
 ## install java 1.8
 yum -y remove java-1.7.0-openjdk*
@@ -11,7 +15,7 @@ yum -y install java-1.8.0-openjdk*
 ## install docker
 amazon-linux-extras install docker
 yum install docker -y
-usermod -a -G docker ec2-user
+usermod -a -G docker $username
 service docker start
 
 # install docker-compose
@@ -47,6 +51,7 @@ sleep 15
 tar -zxvf elasticsearch-6.5.4.tar.gz
 sleep 20
 rm -rf elasticsearch-6.5.4.tar.gz
+# bind IP
 sed -i 's/#network.host: 192.168.0.1/network.host: 0.0.0.0/g' /root/ELK/elasticsearch-6.5.4/elasticsearch.yml
 
 #free the memory
@@ -97,10 +102,10 @@ echo "server.host: \"0.0.0.0\"" >> /root/ELK/kibana-6.5.4-linux-x86_64/config/ki
 echo "elasticsearch.url: \"http://localhost:9200\"" >> /root/ELK/kibana-6.5.4-linux-x86_64/config/kibana.yml
 
 # change owner
-chown -R ec2-user elasticsearch-6.5.4/
-chown -R ec2-user kibana-6.5.4-linux-x86_64
-chown -R ec2-user metricbeat-6.5.4-linux-x86_64
-chown -R ec2-user grafana-5.4.3.linux-amd64
+chown -R $username elasticsearch-6.5.4/
+chown -R $username kibana-6.5.4-linux-x86_64
+chown -R $username metricbeat-6.5.4-linux-x86_64
+chown -R $username grafana-5.4.3.linux-amd64
 
 # setuo PATH
 echo "export PATH=\"\$PATH:/root/ELK/elasticsearch-6.5.4/bin\"" >> /etc/profile
@@ -113,8 +118,8 @@ cd ~
 git clone https://github.com/uuboyscy/NobodyChatbot.git
 sleep 5
 # change owner
-chown -R ec2-user NobodyChatbot/
-chown -R ec2-user /root
+chown -R $username NobodyChatbot/
+chown -R $username /root
 #chmod 777 -R NobodyChatbot
 cd NobodyChatbot
 sh build.sh
