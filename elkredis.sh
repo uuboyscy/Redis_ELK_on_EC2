@@ -43,9 +43,9 @@ cd ELK
 
 # Elasticsearch
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.4.tar.gz
-sleep 3
+sleep 15
 tar -zxvf elasticsearch-6.5.4.tar.gz
-sleep 10
+sleep 20
 rm -rf elasticsearch-6.5.4.tar.gz
 
 #free the memory
@@ -62,9 +62,9 @@ freeMemory
 
 # Kibana
 wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.4-linux-x86_64.tar.gz
-sleep 3
-tar -zxvf kibana-6.5.4-linux-x86_64.tar.gz
 sleep 30
+tar -zxvf kibana-6.5.4-linux-x86_64.tar.gz
+sleep 90
 rm -rf kibana-6.5.4-linux-x86_64.tar.gz
 
 #free the memory
@@ -72,9 +72,9 @@ freeMemory
 
 # Metricbeat
 wget https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-6.5.4-linux-x86_64.tar.gz
-sleep 3
-tar -zxvf metricbeat-6.5.4-linux-x86_64.tar.gz
 sleep 10
+tar -zxvf metricbeat-6.5.4-linux-x86_64.tar.gz
+sleep 20
 rm -rf metricbeat-6.5.4-linux-x86_64.tar.gz
 
 
@@ -83,9 +83,9 @@ freeMemory
 
 # Grafana
 wget https://dl.grafana.com/oss/release/grafana-5.4.3.linux-amd64.tar.gz
-sleep 3
-tar -zxvf grafana-5.4.3.linux-amd64.tar.gz
 sleep 10
+tar -zxvf grafana-5.4.3.linux-amd64.tar.gz
+sleep 20
 rm -rf grafana-5.4.3.linux-amd64.tar.gz
 
 #free the memory
