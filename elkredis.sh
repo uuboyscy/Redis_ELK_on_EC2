@@ -55,6 +55,7 @@ freeMemory
 cd /root/ELK/elasticsearch-6.5.4/config
 sed -i 's/-Xmx1g/-Xmx512m/g' jvm.options
 sed -i 's/-Xms1g/-Xms512m/g' jvm.options
+cd ~/ELK
 
 #free the memory
 freeMemory
