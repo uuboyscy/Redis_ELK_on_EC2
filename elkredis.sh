@@ -2,6 +2,7 @@
 
 yum update -y
 yum -y install git
+echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\"" >> /etc/profile
 
 ## install java 1.8
 yum -y remove java-1.7.0-openjdk*
@@ -46,6 +47,10 @@ sleep 3
 tar -zxvf elasticsearch-6.5.4.tar.gz
 sleep 10
 rm -rf elasticsearch-6.5.4.tar.gz
+
+#free the memory
+freeMemory
+
 # setup memory setting that starting need
 cd /root/ELK/elasticsearch-6.5.4/config
 sed -i 's/-Xmx1g/-Xmx512m/g' jvm.options
@@ -113,4 +118,3 @@ sleep 30
 
 #free the memory
 freeMemory
-echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\"" >> /etc/profile
