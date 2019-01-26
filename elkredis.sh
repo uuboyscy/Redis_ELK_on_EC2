@@ -64,7 +64,7 @@ freeMemory
 wget https://artifacts.elastic.co/downloads/kibana/kibana-6.5.4-linux-x86_64.tar.gz
 sleep 3
 tar -zxvf kibana-6.5.4-linux-x86_64.tar.gz
-sleep10
+sleep 10
 rm -rf kibana-6.5.4-linux-x86_64.tar.gz
 # append server.host: "0.0.0.0" and elasticsearch.url: "http://localhost:9200" to kibana.yml
 echo "server.host: \"0.0.0.0\"" >> /root/ELK/kibana-6.5.4-linux-x86_64/config/kibana.yml
