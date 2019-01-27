@@ -4,7 +4,6 @@ set -x
 
 yum update -y
 yum -y install git
-echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\"" >> /etc/profile
 
 username="ec2-user"
 
@@ -25,8 +24,6 @@ chmod +x /usr/local/bin/docker-compose
 ## pull redis image
 docker pull redislabs/rejson
 docker run --name ec2-redis -d -p 6379:6379 redislabs/rejson
-echo "alias redis-cli='docker exec -it ec2-redis redis-cli'" >> /etc/profile
-echo "alias redis-cli--raw='docker exec -it ec2-redis redis-cli --raw'" >> /etc/profile
 
 sleep 3
 
@@ -127,3 +124,10 @@ sleep 30
 
 #free the memory
 freeMemory
+
+# set alias
+echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\"" >> /etc/profile
+echo "alias redis-cli='docker exec -it ec2-redis redis-cli'" >> /etc/profile
+echo "alias redis-cli--raw='docker exec -it ec2-redis redis-cli --raw'" >> /etc/profile
+echo "alias chatbot-start='sh /root/NobodyChatbot/start.sh'" >> /etc/profile
+echo "alias chatbot-stop='sh /root/NobodyChatbot/stop.sh'" >> /etc/profile
