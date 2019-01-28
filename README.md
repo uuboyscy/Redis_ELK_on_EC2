@@ -27,6 +27,7 @@ token=howdoyouturnthison8888
 
 ### Redis
 6379:6379
+password:howdoyouturnthison6379
 
 ###  MySQL
 not installed yet
