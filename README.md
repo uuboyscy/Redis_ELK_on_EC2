@@ -15,3 +15,29 @@ Start up line chatbot server and get ngrok url
 
 ### chatbot-stop
 Stop line chatbot server
+
+## Port
+### Jupyter notebook
+9527:8888
+token=fuckyou306475
+
+### Redis
+6379:6379
+
+###  MySQL
+not installed yet
+
+### Ngrok
+54088:4040
+
+### Flask
+80:5000
+
+### Elasticsearch
+9200:9200
+
+### Kibana
+5601:5601
+
+### Grafana
+3000:3000
