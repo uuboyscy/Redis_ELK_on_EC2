@@ -20,7 +20,7 @@ Stop line chatbot server
 ## Port
 ### Jupyter notebook
 9527:8888
-token=fuckyou306475
+token=howdoyouturnthison8888
 
 ### Redis
 6379:6379
