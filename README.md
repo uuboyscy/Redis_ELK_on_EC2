@@ -16,6 +16,9 @@ Start up line chatbot server and get ngrok url
 ### chatbot-stop
 Stop line chatbot server
 
+### ngrok-url
+get ngrok url
+
 
 ## Port
 ### Jupyter notebook
