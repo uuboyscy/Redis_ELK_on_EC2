@@ -127,6 +127,15 @@ sleep 5
 #free the memory
 freeMemory
 
+#setup swap space
+dd if=/dev/zero of=/swapfile bs=1M count=1024
+sleep 10
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+sleep 10
+echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
+
 # set alias
 echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\"" >> /etc/profile
 echo "alias redis-cli='docker exec -it ec2-redis redis-cli'" >> /etc/profile
