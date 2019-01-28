@@ -23,7 +23,7 @@ chmod +x /usr/local/bin/docker-compose
 
 ## pull redis image
 docker pull redislabs/rejson
-docker run --name ec2-redis -d -p 6379:6379 redislabs/rejson
+#docker run --name ec2-redis -d -p 6379:6379 redislabs/rejson
 
 sleep 3
 
@@ -138,8 +138,8 @@ echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
 
 # set alias
 echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\"" >> /etc/profile
-echo "alias redis-cli='docker exec -it ec2-redis redis-cli'" >> /etc/profile
-echo "alias redis-cli--raw='docker exec -it ec2-redis redis-cli --raw'" >> /etc/profile
+echo "alias redis-cli='docker exec -it ec2-redis redis-cli -a howdoyouturnthison6379'" >> /etc/profile
+echo "alias redis-cli--raw='docker exec -it ec2-redis redis-cli --raw -a howdoyouturnthison6379'" >> /etc/profile
 echo "alias chatbot-start='docker-compose -f /root/NobodyChatbot/docker-compose.yml up --build -d;sleep 3;\
   sh /root/NobodyChatbot/ngurl.sh'" >> /etc/profile
 echo "alias chatbot-stop='docker-compose -f /root/NobodyChatbot/docker-compose.yml down'" >> /etc/profile
