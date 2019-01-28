@@ -131,5 +131,5 @@ freeMemory
 echo "alias freemem=\"sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches';sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'\"" >> /etc/profile
 echo "alias redis-cli='docker exec -it ec2-redis redis-cli'" >> /etc/profile
 echo "alias redis-cli--raw='docker exec -it ec2-redis redis-cli --raw'" >> /etc/profile
-echo "alias chatbot-start='cd /root/NobodyChatbot;docker-compose up -d;./ngurl.sh'" >> /etc/profile
+echo "alias chatbot-start='cd /root/NobodyChatbot;docker-compose up -d;sleep 3;./ngurl.sh'" >> /etc/profile
 echo "alias chatbot-stop='cd /root/NobodyChatbot/;docker-compose down'" >> /etc/profile
