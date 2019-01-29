@@ -50,6 +50,7 @@ sleep 20
 rm -rf elasticsearch-6.5.4.tar.gz
 # bind IP
 sed -i 's/#network.host: 192.168.0.1/network.host: 0.0.0.0/g' /root/ELK/elasticsearch-6.5.4/config/elasticsearch.yml
+sed -i 's/#http.port: 9200/http.port: 9200/g' /root/ELK/elasticsearch-6.5.4/config/elasticsearch.yml
 
 #free the memory
 freeMemory
